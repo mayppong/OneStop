@@ -1,0 +1,623 @@
+<!--
+OneStop Tumblr Theme - V 0.1
+
+For documentation, please read the README and Docs files on the Github's page
+
+@created by     May Pongpitpitak
+Update:         http://blog.mayppong.com/tagged/OneStop_Tumblr_Theme
+Github:         http://www.github.com/mayppong/OneStop
+-->
+<html>
+<head>
+
+    <title>
+        {block:TagPage}Tagged "{Tag}" | {/block:TagPage}
+        {block:SearchPage}Searched "{SearchQuery}" | {/block:SearchPage}
+        {block:PostSummary}{PostSummary} | {/block:PostSummary}
+        {Title}
+    </title>
+
+    <meta charset="utf-8" />
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    <meta name="keywords" content="{block:Tags}{Tag}, {/block:Tags}{Title}" />
+
+    <!-- Blog's Appearance Options -->
+    <meta name="Blog's Appearance" />
+    <meta name="color:Blog Title"               content="#000000" />
+    <meta name="color:Post Title"               content="#000000" />
+    <meta name="color:Body Text"                content="#000000" />
+    <meta name="color:Link"                     content="#000000" />
+    <meta name="color:Accent"                   content="#000000" />
+    <meta name="color:Accent Background"        content="#000000" />
+
+    <meta name="font:Blog Title"                content="Georgia, Helvetica" />
+    <meta name="font:Post Title"                content="Georgia, Helvetica" />
+    <meta name="font:Body Text"                 content="Georgia, Helvetica" />
+
+    <meta name="text:Blog Title Size"           content="12" />
+    <meta name="text:Post Title Size"           content="12" />
+    <meta name="text:Body Text Size"            content="12" />
+
+    <!-- Blog's Lay-out Options -->
+    <meta name="Blog's Lay-out" />
+    <meta name="image:Logo"                     content="" />
+    <meta name="image:Banner"                   content="" />
+    <meta name="image:Background"               content="" />
+    <meta name="text:Sidebar Width"             content="" />
+    <meta name="text:Content Width"             content="" />
+    <meta name="if:Continuous Scroll"           content="" />
+    <meta name="text:Posts per page"            content="" />
+
+    <!-- Blog's Features Options -->
+    <meta name="Blog's Features" />
+    <meta name="if:Show Blog Title"             content="1" />
+    <meta name="if:Show Portrait"               content="1" />
+    <meta name="if:Show Editor List"            content="0" />
+    <meta name="if:Show Featured Posts"         content="0" />
+    <meta name="if:Show Likes"                  content="0" />
+    <meta name="if:Show Following on Sidebar"   content="0" />
+    <meta name="if:Show Following on Footer"    content="0" />
+    <meta name="if:Show Social Icons"           content="1" />
+    <meta name="if:Show Social Text"            content="1" />
+    <meta name="if:Show Latest Tweet"           content="0" />
+    <meta name="if:Show Twitter Widget"         content="0" />
+    <meta name="if:Show Sharing Features"       content="1" />
+    <meta name="text:Sticky Tag"                content="" />
+    <meta name="text:Sticky Label"              content="" />
+    <meta name="text:Social Icon List Title"    content="Find me on" />
+    <meta name="text:Likes List Title"          content="Posts I Like" />
+    <meta name="text:Likes List Size"           content="" />
+    <meta name="text:Following List Title"      content="Tumblogs I Follow" />
+    <meta name="text:Disqus Shortname"          content="" />
+    <meta name="text:Google Analytics ID"       content="" />
+
+    <!-- Social network links -->
+    <meta name="text:Amazon Username"           content="" />
+    <meta name="text:Behance Username"          content="" />
+    <meta name="text:Blogger Username"          content="" />
+    <meta name="text:Delicious Username"        content="" />
+    <meta name="text:Deviant Art Username"      content="" />
+    <meta name="text:Digg Username"             content="" />
+    <meta name="text:Dribble Username"          content="" />
+    <meta name="text:Ebay Username"             content="" />
+    <meta name="text:Facebook Username"         content="" />
+    <meta name="text:FFFFound Username"         content="" />
+    <meta name="text:Flickr Username"           content="" />
+    <meta name="text:Forrst Username"           content="" />
+    <meta name="text:Foursquare Username"       content="" />
+    <meta name="text:FriendFeed Username"       content="" />
+    <meta name="text:Gdgt Username"             content="" />
+    <meta name="text:Github Username"           content="" />
+    <meta name="text:GooglePlus Username"       content="" />
+    <meta name="text:Gowalla Username"          content="" />
+    <meta name="text:Grooveshark Username"      content="" />
+    <meta name="text:Identica Username"         content="" />
+    <meta name="text:Lastfm Username"           content="" />
+    <meta name="text:LinkedIn Username"         content="" />
+    <meta name="text:Meetup Username"           content="" />
+    <meta name="text:iCloud Username"           content="" />
+    <meta name="text:MSN Username"              content="" />
+    <meta name="text:MySpace Username"          content="" /> 
+    <meta name="text:Netvibes Username"         content="" />
+    <meta name="text:PhotoBucket Username"      content="" />
+    <meta name="text:Picasa Username"           content="" />
+    <meta name="text:Posterous Site Name"       content="" />
+    <meta name="text:Rdio Username"             content="" />
+    <meta name="text:Scribd Username"           content="" />
+    <meta name="text:SoundCloud Username"       content="" />
+    <meta name="text:Spotify Username"          content="" />
+    <meta name="text:Squidoo Username"          content="" />
+    <meta name="text:StumblrUpon Username"      content="" />
+    <meta name="text:Technorati Username"       content="" />
+    <meta name="text:Twitter Username"          content="" />
+    <meta name="text:Vimeo Username"            content="" />
+    <meta name="text:Wordpress SiteName"        content="" />
+    <meta name="text:Yelp Username"             content="" />
+    <meta name="text:YouTube Username"          content="" />
+
+    <!-- Links to external files -->
+    <link href="{Favicon}" rel="shortcut icon" />
+    <link href="{RSS}" rel="alternate" type="application/rss+xml" />
+
+</head>
+<body>
+
+    <!-- Top navigation which includes links, RSS feed, archive, mobile -->
+    <div id="header">
+
+        <!-- Page title and sub-title -->
+        <div id="title">
+            <h1>{Title}</h1>
+            <!-- Subtitle here instead? -->
+            {block:Description}
+                <p>{Description}</p>
+            {/block:Description}
+        </div> <!-- Page Title and sub-title -->
+
+        <div id="header_links">
+            <ul>
+            <li><a href="/">Random</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="{RSS}">RSS Feed</a></li>
+            <li><a href="/iphone-theme">Mobile</a></li>
+            <li><a href="/ask">Ask me</a></li>
+            </ul>
+        </div>
+
+        <!--Profile-->
+        <div id="profile">
+            {block:IfShowPortrait}<img src="{PortraitURL-64}" alt="Profile photo" />{/block:IfShowPortrait}
+            {Description}
+        </div> <!-- Profile -->
+
+        <!-- Social network list -->
+        <div id="social_network"> 
+            <h2>{SocialIconListTitle}</h2>
+            <ul>
+            {block:IfAmazonUsername}<li>
+                <a href="http://www." alt="Link to {text:Amazon Username} on Amazon">
+                <img class = "social_icons" src="" alt="{text:Amazon Username} on Amazon" />
+                <span class = "social_text">{Text:Amazon Username} on Amazon</span></a>
+                </li>{/block:IfAmazonUsername}
+            {block:IfBehanceUsername}<li>
+                <a href="http://www." alt="Link to {text:Behance Username} on Behance">
+                <img class = "social_icons" src="" alt="{text:Amazon Username} on Behance" />
+                <span class = "social_text">{Text:Behance Username} on Behance</span></a>
+                </li>{/block:IfBehanceUsername}
+            {block:IfBloggerUsername}<li>
+                <a href="http://www." alt="Link to {text:Blogger Username} on Blogger">
+                <img class = "social_icons" src="" alt="{text:Blogger Username} on Blogger" />
+                <span class = "social_text">{Text:Blogger Username} on Blogger</span></a>
+                </li>{/block:IfBloggerUsername}
+            {block:IfDeliciousUsername}<li>
+                <a href="http://www." alt="Link to {text:Delicious Username} on Delicious">
+                <img class = "social_icons" src="" alt="{text:Delicious Username} on Delicious" />
+                <span class = "social_text">{Text:Delicious Username} on Delicious</span></a>
+                </li>{/block:IfDeliciousUsername}
+            {block:IfDeviantArtUsername}<li>
+                <a href="http://www." alt="Link to {text:DeviantArt Username} on Deviant Art">
+                <img class = "social_icons" src="" alt="{text:DeviantArt Username} on Deviant Art">
+                <span class = "social_text">{Text:DeviantArt Username} on Deviant Art</span></a>
+                </li>{/block:IfDeviantArtUsername}
+            {block:IfDiggUsername}<li>
+                <a href="http://www." alt="Link to {text:Digg Username} on Digg">
+                <img class = "social_icons" src="" alt="{text:Digg Username} on Digg" />
+                <span class = "social_text">{Text:Digg Username} on Digg</span></a>
+                </li>{/block:ifDiggUsername}
+            {block:IfDribbleUsername}<li>
+                <a href="http://www." alt="Link to {text:Dribble Username} on Dribble">
+                <img class = "social_icons" src="" alt="{text:Dribble Username} on Dribble" />
+                <span class = "social_text">{Text:Dribble Username} on Dribble</span></a>
+                </li>{/block:IfDribbleUsername}
+            {block:IfEbayUsername}<li>
+                <a href="http://www." alt="Link to {text:Ebay Username} on Ebay">
+                <img class = "social_icons" src="" alt="{text:Ebay Username} on Ebay" />
+                <span class = "social_text">{Text:Ebay Username} on Ebay</span></a>
+                </li>{/block:IfEbayUsername}
+            {block:IfFacebookUsername}<li>
+                <a href="http://www." alt="Link to {text:Facebook Username} on Facebook">
+                <img class = "social_icons" src="" alt="{text:Facebook Username} on Facebook" />
+                <span class = "social_text">{Text:Facebook Username} on Facebook</span></a>
+                </li>{/block:IfFacebookUsername}
+            {block:IfFFFFoundUsername}<li>
+                <a href="http://www." alt="Link to {text:FFFFound Username} on FFFFound">
+                <img class = "social_icons" src="" alt="{text:FFFFound Username} on FFFFound" />
+                <span class = "social_text">{Text:FFFFound Username} on FFFFound</span></a>
+                </li>{/block:IfFFFFoundUsername}
+            {block:IfFlickrUsername}<li>
+                <a href="http://www." alt="Link to {text:Flickr Username} on Flickr">
+                <img class = "social_icons" src="" alt="{text:Flickr Username} on Flickr" />
+                <span class = "social_text">{Text:FLickr Username} on Flickr</span></a>
+                </li>{/block:IfFlickrUsername}
+            {block:ifForrstUsername}<li>
+                <a href="http://www." alt="Link to {text:Forrst Username} on Forrst">
+                <img class = "social_icons" src="" alt="{text:Forrst Username} on Forrst" />
+                <span class = "social_text">{Text:Forrst Username} on Forrst</span></a>
+                </li>{/block:IfForrstUsername}
+            {block:IfFoursquareUsername}<li>
+                <a href="http://www." alt="Link to {text:Fourquare Username} on Fourquare">
+                <img class = "social_icons" src="" alt="{text:Foursquare Username} on Foursquare" />
+                <span class = "social_text">{Text:Foursquare Username} on Foursquare</span></a>
+                </li>{/block:IfFoursquareUsername}
+            {block:IfFriendFeedUsername}<li>
+                <a href="http://www." alt="Link to {text:FriendFeed Username} on FriendFeed">
+                <img class = "social_icons" src="" alt="{text:FriendFeed Username} on FriendFeed" />
+                <span class = "social_text">{Text:FriendFeed Username} on FriendFeed</span></a>
+                </li>{/block:IfFriendFeedUsername}
+            {block:IfGdgtUsername}<li>
+                <a href="http://www." alt="Link to {text:Gdgt Username} on Gdgt">
+                <img class = "social_icons" src="" alt="{text:Gdgt Username} on Gdgt" />
+                <span class = "social_text">{Text:Gdgt Username} on Gdgt</span></a>
+                </li>{/block:IfGdgtUsername}
+            {block:IfGithubUsername}<li>
+                <a href="http://www." alt="Link to {text:Github Username} on Github">
+                <img class = "social_icons" src="" alt="{text:Github Username} on Github" />
+                <span class = "social_text">{Text:Github Username} on Github</span></a>
+                </li>{/block:IfGithubUsername}
+            {block:IfGooglePlusUsername}<li>
+                <a href="http://www." alt="Link to {text:GooglePlus Username} on Google+">
+                <img class = "social_icons" src="" alt="{text:GooglePlus Username} on Google+" />
+                <span class = "social_text">{Text:GooglePlus Username} on Google+</span></a>
+                </li>{/block:IfGooglePlusUsername}
+            {block:IfGowallaUsername}<li>
+                <a href="http://www." alt="Link to {text:Gowalla Username} on Gowalla">
+                <img class = "social_icons" src="" alt="{text:Gowalla Username} on Gowalla" />
+                <span class = "social_text">{Text:Gowalla Username} on Gowalla</span></a>
+                </li>{/block:IfGowallaUsername}
+            {block:IfGroovesharkUsername}<li>
+                <a href="http://www." alt="Link to {text:Grooveshark Username} on Grooveshark">
+                <img class = "social_icons" src="" alt="{text:Grooveshark Username} on Grooveshark" />
+                <span class = "social_text">{Text:Grooveshark Username} on Grooveshark</span></a>
+                </li>{/block:IfGroovesharkUsername}
+            {block:IfIdenticaUsername}<li>
+                <a href="http://www." alt="Link to {text:Identica Username} on Identica">
+                <img class = "social_icons" src="" alt="{text:Identica Username} on Identica" />
+                <span class = "social_text">{Text:Identica Username} on Identica</span></a>
+                </li>{/block:IfIdenticaUsername}
+            {block:IfLastfmUsername}<li>
+                <a href="http://www." alt="Link to {text:Lastfm Username} on Lastfm">
+                <img class = "social_icons" src="" alt="{text:Lastfm Username} on Lastfm" />
+                <span class = "social_text">{Text:Lastfm Username} on Lastfm</span></a>
+                </li>{/block:IfLastfmUsername}
+            {block:IfLinkedInUsername}<li>
+                <a href="http://www." alt="Link to {text:LinkedIn Username} on LinkedIn">
+                <img class = "social_icons" src="" alt="{text:LinkedIn Username} on LinkedIn" />
+                <span class = "social_text">{Text:LinkedIn Username} on LinkedIn</span></a>
+                </li>{/block:IfLinkedInUsername}
+            {block:IfMeetupUsername}<li>
+                <a href="http://www." alt="Link to {text:Meetup Username} on Meetup">
+                <img class = "social_icons" src="" alt="{text:Meetup Username} on Meetup" />
+                <span class = "social_text">{Text:Meetup Username} on Meetup</span></a>
+                </li>{/block:IfMeetupUsername}
+            {block:IfMobileMeUsername}<li>
+                <a href="http://www." alt="Link to {text:MobileMe Username} on MobileMe">
+                <img class = "social_icons" src="" alt="{text:MobileMe Username} on MobileMe" />
+                <span class = "social_text">{Text:MobileMe Username} on MobileMe</span></a>
+                </li>{/block:IfMobileMeUsername}
+            {block:IfMSNUsername}<li>
+                <a href="http://www." alt="Link to {text:MSN Username} on MSN">
+                <img class = "social_icons" src="" alt="{text:MSN Username} on MSN" />
+                <span class = "social_text">{Text:MSN Username} on MSN</span></a>
+                </li>{/block:IfMSNUsername}
+            {block:IfMySpaceUsername}<li>   
+                <a href="http://www." alt="Link to {text:MySpace Username} on MySpace">
+                <img class = "social_icons" src="" alt="{text:MySpace Username} on MySpace" />
+                <span class = "social_text">{Text:MySpace Username} on MySpace</span></a>
+                </li>{/block:IfMySpaceUsername}
+            {block:IfNetvibesUsername}<li>
+                <a href="http://www." alt="Link to {text:Netvibes Username} on Netvibes">
+                <img src="" alt="{text:Netvibes Username} on Netvibes" />
+                <span class = "social_text">{Text:Netvibes Username} on Netvibes</span></a>
+                </li>{/block:IfNetvibesUsername}
+            {block:IfPhotoBucketUsername}<li>
+                <a href="http://www." alt="Link to {text:PhotoBucket Username} on PhotoBucket">
+                <img class = "social_icons" src="" alt="{text:PhotoBucket Username} on PhotoBucket" />
+                <span class = "social_text">{Text:PhotoBucket Username} on PhotoBucket</span></a>
+                </li>{/block:IfPhotoBucketUsername}
+            {block:IfPicasaUsername}<li>
+                <a href="http://www." alt="Link to {text:Picasa Username} on Picasa">
+                <img class = "social_icons" src="" alt="{text:Picasa Username} on Picasa" />
+                <span class = "social_text">{Text:Picasa Username} on Picasa</span></a>
+                </li>{/block:IfPicasaUsername}
+            {block:IfPosterousUsername}<li>
+                <a href="http://www." alt="Link to {text:Posterous Username} on Posterous">
+                <img class = "social_icons" src="" alt="{text:Posterous Username} on Posterous" />
+                <span class = "social_text">{Text:Posterous Username} on Posterous</span></a>
+                </li>{/block:IfPosterousUsername}
+            {block:IfRdioUsername}<li>
+                <a href="http://www." alt="Link to {text:Rdio Username} on Rdio">
+                <img class = "social_icons" src="" alt="{text:Rdio Username} on Rdio" />
+                <span class = "social_text">{Text:Rdio Username} on Rdio</span></a>
+                </li>{/block:IfRdioUsername}
+            {block:IfScribdUsername}<li>
+                <a href="http://www." alt="Link to {text:Scribd Username} on Scribd">
+                <img class = "social_icons" src="" alt="{text:Scribd Username} on Scribd" />
+                <span class = "social_text">{Text:Scribd Username} on Scribd</span></a>
+                </li>{/block:IfScribdUsername}
+            {block:IfSoundCloudUsername}<li>
+                <a href="http://www." alt="Link to {text:SoundCloud Username} on SoundCloud">
+                <img class = "social_icons" src="" alt="{text:SoundCloud Username} on SoundCloud" />
+                <span class = "social_text">{Text:SoundCloud Username} on SoundCloud</span></a>
+                </li>{/block:IfSoundCloudUsername}
+            {block:IfSpotifyUsername}<li>
+                <a href="http://www." alt="Link to {text:Spotify Username} on Spotify">
+                <img class = "social_icons" src="" alt="{text:Spotify Username} on Spotify" />
+                <span class = "social_text">{Text:Spotify Username} on Spotify</span></a>
+                </li>{/block:IfSpotifyUsername}
+            {block:IfSquidooUsername}<li>
+                <a href="http://www." alt="Link to {text:Squidoo Username} on Squidoo">
+                <img class = "social_icons" src="" alt="{text:Squidoo Username} on Squidoo" />
+                <span class = "social_text">{Text:Squidoo Username} on Squidoo</span></a>
+                </li>{/block:IfSquidooUsername}
+            {block:IfStumbleUponUsername}<li>
+                <a href="http://www." alt="Link to {text:StumbleUpon Username} on StumbleUpon">
+                <img class = "social_icons" src="" alt="{text:StumbleUpon Username} on StumbleUpon" />
+                <span class = "social_text">{Text:StumbleUpon Username} on StumbleUpon</span></a>
+                </li>{/block:IfStumbleUponUsername}
+            {block:IfTechnoratiUsername}<li>
+                <a href="http://www." alt="Link to {text:Technorati Username} on Technorati">
+                <img class = "social_icons" src="" alt="{text:Technorati Username} on Technorati" />
+                <span class = "social_text">{Text:Technorati Username} on Technorati</span></a>
+                </li>{/block:IfTechnoratiUsername}
+            {block:IfTwitterUsername}<li>
+                <a href="http://www." alt="Link to {text:Twitter Username} on Twitter">
+                <img class = "social_icons" src="" alt="{text:Twitter Username} on Twitter" />
+                <span class = "social_text">{Text:Twitter Username} on Twitter</span></a>
+                </li>{/block:IfTwitterUsername}
+            {block:IfVimeoUsername}<li>
+                <a href="http://www." alt="Link to {text:Vimeo Username} on Vimeo">
+                <img class = "social_icons" src="" alt="{text:Vimeo Username} on Vimeo" />
+                <span class = "social_text">{Text:Vimeo Username} on Vimeo</span></a>
+                </li>{/block:IfVimeoUsername}
+            {block:IfWordpressUsername}<li>
+                <a href="http://www." alt="Link to {text:Wordpress Username} on Wordpress">
+                <img class = "social_icons" src="" alt="{text:Wordpress Username} on Wordpress" />
+                <span class = "social_text">{Text:Wordpress Username} on Wordpress</span></a>
+                </li>{/block:IfWordpressUsername}
+            {block:IfYelpUsername}<li>
+                <a href="http://www." alt="Link to {text:Yelp Username} on Yelp">
+                <img class = "social_icons" src="" alt="{text:Yelp Username} on Yelp" />
+                <span class = "social_text">{Text:Yelp Username} on Yelp</span></a>
+                </li>{/block:IfYelpUsername}
+            {block:IfYouTubeUsername}<li>
+                <a href="http://www." alt="Link to {text:YouTube Username} on YouTube">
+                <img class = "social_icons" src="" alt="{text:YouTube Username} on YouTube" />
+                <span class = "social_text">{Text:YouTube Username} on YouTube</span></a>
+                </li>{/block:IfYouTubeUsername}
+            </ul>
+        </div> 
+        <!--Social network list-->
+
+
+        <!-- Latest tweet -->
+        {block:IfShowLatestTweet}
+            <div id="last_tweet">
+            </div>
+        {/block:IfShowLatestTweet} <!-- Lastest tweet -->
+
+
+        <!--  Pages -->
+        {block:HasPages}
+        <div id="pages">
+            <a href={URL}>{Label}</a>
+        </div>
+        {/block:HasPages}
+        <!--  Pages -->
+
+    </div> <!-- header -->
+
+
+    <!-- Posts that are tagged as Featured content -->
+    <div id="featured">
+        <ul id="featured"></ul>
+    </div> <!-- Featured posts -->
+
+
+    <!-- Side bar includes about/description, twitter widget,  -->
+    <div id="sidebar">
+
+
+
+
+        <!-- Twitter stream -->
+        {block:IfShowTwitterWidget}
+        <div id="twitter_widget">
+            {block:Twitter}<div id="twitter" style="display:none;">
+                <h2><a href="http://twitter.com/{TwitterUsername}">Latest Tweets</a></h2>
+                <div id="tweets"></div>
+            </div>
+
+            <script type="text/javascript">
+                function recent_tweets(data) {
+                    for (i=0; i<data.length; i++) {
+                        document.getElementById("tweets").innerHTML =
+                            document.getElementById("tweets").innerHTML +
+                            '<a href="http://twitter.com/{TwitterUsername}/status/' +
+                            (data[i].id_str ? data[i].id_str : data[i].id) +
+                            '"><div class="content">' + data[i].text +
+                            '</div></a>';
+                    }
+                    document.getElementById("twitter").style.display = 'block';
+                }
+            </script>{/block:Twitter}
+        </div>
+        {/block:IfShowTwitterWidget}
+        <!-- Twitter stream -->
+
+        <!-- Likes -->
+        {block:Likes}
+        <div id = "Likes">
+            <h2>{text:Likes List Title}</h2>
+            {Likes limit="{text:Likes List Size}" summarize="100"}
+            <a href="http://www.tumblr.com/liked/by/{Name}">See more stuff I like </a>
+        </div> 
+        {/block:Likes}
+        <!-- Likes -->
+
+        <!--  Following -->
+        {block:IfShowFollowingonSidebar}
+        {block:Following}
+            Blogs I follow:
+            <ul>
+                {block:Followed}
+                <li>
+                    <img src="{FollowedPortraitURL-48}"/>
+                    <a href="{FollowedURL}">{FollowedName}</a>
+                </li>
+                {/block:Followed}
+            </ul>
+        {/block:Following}
+        {/block:IfShowFollowingonSidebar}
+
+    </div> 
+    <!-- Side bar -->
+
+
+    <!-- The content of the blog -->
+    <h1>{Title}</h1>
+
+    {block:Description}
+        <p id="description">{Description}</p>
+    {/block:Description}
+
+    <ol id="posts">
+        {block:Posts}
+            {block:Text}
+                <li class="post text">
+                    <div class="post-header">
+                        {block:Date}
+                            Posted on: {Month} {DayofMonth}, {Year}. {24HourWithZero}:{Minutes}
+                        {/block:Date}
+                    </div>
+                    <div class="post-body">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        {Body}
+                    </div>
+                    <div class="post-footer">
+                        {block:HasTags}
+                            <ul class="tags">
+                                {block:Tags}
+                                    <li>
+                                        <a href="{TagURLChrono}">{Tag}</a>
+                                    </li>
+                                {/block:Tags}
+                            </ul>
+                        {/block:HasTags}
+                    </div>
+                </li>
+            {/block:Text}
+
+            {block:Photo}
+                <li class="post photo">
+                    <div class="post-header">
+                        {block:Date}
+                            Posted on: {Month} {DayofMonth}, {Year}. {24HourWithZero}:{Minutes}
+                        {/block:Date}
+                    </div>
+
+                    <a href="{PhotoURL-HighRes}"> <img src="{PhotoURL-500}" alt="{PhotoAlt}" /> </a>
+                    <div>
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    </div>
+                    <div class="post-footer">
+                        {LinkOpentag}Origin{LinkCloseTag}
+                        {block:HasTags}
+                            <ul class="tags">
+                                {block:Tags}
+                                    <li>
+                                        <a href="{TagURL}">{Tag}</a>
+                                    </li>
+                                {/block:Tags}
+                            </ul>
+                        {/block:HasTags}
+                    </div>
+                </li>
+            {/block:Photo}
+
+            {block:Photoset}
+                <li class="post photoset">
+                    {Photoset-500}
+
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                </li>
+            {/block:Photoset}
+
+            {block:Quote}
+                <li class="post quote">
+                    "{Quote}"
+
+                    {block:Source}
+                        <div class="source">{Source}</div>
+                    {/block:Source}
+                </li>
+            {/block:Quote}
+
+            {block:Link}
+                <li class="post link">
+                    <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                    {block:Description}
+                        <div class="description">{Description}</div>
+                    {/block:Description}
+                </li>
+            {/block:Link}
+
+            {block:Chat}
+                <li class="post chat">
+                    {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}
+
+                    <ul class="chat">
+                        {block:Lines}
+                            <li class="{Alt} user_{UserNumber}">
+                                {block:Label}
+                                    <span class="label">{Label}</span>
+                                {/block:Label}
+
+                                {Line}
+                            </li>
+                        {/block:Lines}
+                    </ul>
+                </li>
+            {/block:Chat}
+
+            {block:Video}
+                <li class="post video">
+                    {Video-500}
+
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                </li>
+            {/block:Video}
+
+            {block:Audio}
+                <li class="post audio">
+                    {AudioPlayerBlack}
+
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                </li>
+            {/block:Audio}
+        {/block:Posts}
+    </ol>
+
+    <!-- Page navigation -->
+    <div id="navi">
+        <!-- Page Navigation -->
+        {block:Pagination}
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&#171; Previous</a>
+            {/block:PreviousPage}
+
+            {block:CurrentPage} <span class="current_page">{PageNumber}</span> {/block:CurrentPage}
+
+            {block:NextPage}
+                <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+        {/block:Pagination}
+    </div> <!-- Page navigation -->
+
+
+    <p id="footer">
+        {block:PreviousPage}
+            <a href="{PreviousPage}">&#171; Previous</a>
+        {/block:PreviousPage}
+
+        {block:NextPage}
+            <a href="{NextPage}">Next &#187;</a>
+        {/block:NextPage}
+
+        <a href="/archive">Archive</a>
+    </p>
+</body>
+</html>
